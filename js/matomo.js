@@ -8,7 +8,7 @@ function trackMotomo() {
     _paq.push(['enableLinkTracking']);
     _paq.push(['setUserId', currentUserId]);
     _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '1']);
+    _paq.push(['setSiteId', '2']);
     // Set page title and track it
     _paq.push(['setDocumentTitle', document.domain + "/" + document.title]);
     _paq.push(['trackAllContentImpressions']);
