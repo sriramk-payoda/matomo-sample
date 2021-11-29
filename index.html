@@ -409,6 +409,24 @@
 				console.log(data);
 			});
 
+			$.get('https://www.cloudflare.com/cdn-cgi/trace', function(data) {
+				// Convert key-value pairs to JSON
+				// https://stackoverflow.com/a/39284735/452587
+				data = data.trim().split('\n').reduce(function(obj, pair) {
+					pair = pair.split('=');
+					return obj[pair[0]] = pair[1], obj;
+				}, {});
+				cip = data.cip;
+				token_auth = "5121da65f7e010378b04b7d39cf22285";
+				$.ajax({
+					url: 'https://matomo.payoda.net/matomo.php',
+					type: 'POST',
+					dataType: 'JSON',
+					success: function(data) {
+						console.log(data);
+					}
+				})
+			});
 
 			_paq.push(['trackContentImpression', 'More Button', 'More Info', 'https://www.example.com']);
 			$("#more_bt_1").click(function() {
