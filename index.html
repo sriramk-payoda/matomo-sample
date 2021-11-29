@@ -416,12 +416,18 @@
 					pair = pair.split('=');
 					return obj[pair[0]] = pair[1], obj;
 				}, {});
-				cip = data.cip;
+				console.log(data.ip);
+				cip = data.ip;
+				console.log(cip);
 				token_auth = "5121da65f7e010378b04b7d39cf22285";
 				$.ajax({
 					url: 'https://matomo.payoda.net/matomo.php',
 					type: 'POST',
 					dataType: 'JSON',
+					data: {
+						token_auth: token_auth,
+						cip: cip
+					},
 					success: function(data) {
 						console.log(data);
 					}
